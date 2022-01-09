@@ -1,14 +1,18 @@
 'use strict';
 
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const MongoClient = require("mongodb").MongoClient;
 
-const CONNECTION_URL = "mongodb://ud7xkvdf2ht53j5stlb7:E4OSziaRDY81mAcbR94b@beonaiunddce852-mongodb.services.clever-cloud.com:27017/beonaiunddce852";
+const CONNECTION_URL = process.env.DATABASE;
 const DATABASE_NAME = "beonaiunddce852";
 const COLLECTION_NAME = "Resources";
+
+//console.log(process.env)
 
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
